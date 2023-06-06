@@ -9,17 +9,18 @@ import { IRoute, unregistered, registered } from './router';
 const App:FC = () => {
   const auth = getAuth(firebase_config);
   const [user, setUser] = useState(auth.currentUser);
+  const signUp = () => {
+    signInWithPopup(auth, googleAuthProvider)
+        .then((credentials) => setUser(credentials.user))
+        .catch(e => console.error(e))
+  }
   useEffect(() => {
     const unsub = auth.onAuthStateChanged(maybeUser => {
       if (maybeUser != null){
         return setUser(maybeUser)
       }
     })
-    signInWithPopup(auth, googleAuthProvider)
-        .then((credentials) => setUser(credentials.user))
-        .catch(e => console.error(e))
     return unsub
-    
   }, [auth]);
   return(
     <>

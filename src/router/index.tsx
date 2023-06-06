@@ -1,14 +1,15 @@
+import React from "react"
 import Login from "../pages/Login"
 import Shop from "../pages/Shop"
 
 export const enum RoutesNames {
   UNREGISTERED = '/login',
-  REGISTERED = '/shop'
+  REGISTERED = '/'
 }
 
 export interface IRoute {
   path: string
-  component: React.ComponentType | React.ReactNode
+  component: React.ReactNode | React.ComponentType
   exact?: boolean
 }
 
