@@ -2,6 +2,8 @@ import { FC, MouseEvent, useState } from "react";
 import Button from "@mui/material/Button";
 import { AppBar, Toolbar, Typography, Container, Box, IconButton, Menu, MenuItem, Tooltip, Avatar } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
+import MenuIcon from "@mui/icons-material/Menu"
+import { useTelegramWebApp } from './../../hook/useTelegramWebApp';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -25,6 +27,7 @@ const Header: FC = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const { eventCloseWebApp, telegramWeb } = useTelegramWebApp()
   return (
     <>
       <AppBar position="static">
@@ -48,7 +51,6 @@ const Header: FC = () => {
             >
               LOGO
             </Typography>
-
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -59,6 +61,7 @@ const Header: FC = () => {
                 color="inherit"
               >
               </IconButton>
+              <MenuIcon />
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -118,7 +121,7 @@ const Header: FC = () => {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/public/avatar.jpg" />
+                  <Avatar alt="Remy Sharp" src={'/public/avatar.jpg'} onClick={() => eventCloseWebApp}/>
                 </IconButton>
               </Tooltip>
               <Menu

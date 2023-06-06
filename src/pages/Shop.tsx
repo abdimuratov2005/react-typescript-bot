@@ -3,7 +3,7 @@ import { FC } from 'react'
 const Shop:FC = () => {
   return(
     <>
-      Shop
+      <h1>Shop</h1>
     </>
   )
 }

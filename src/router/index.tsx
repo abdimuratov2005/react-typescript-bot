@@ -8,14 +8,14 @@ export const enum RoutesNames {
 
 export interface IRoute {
   path: string
-  component: React.ComponentType
+  component: React.ComponentType | React.ReactNode
   exact?: boolean
 }
 
 export const registered:IRoute[] = [
-  { path: RoutesNames.REGISTERED, component: Shop }
+  { path: RoutesNames.REGISTERED, component: Shop, exact: true }
 ]
 
 export const unregistered:IRoute[] = [
-  { path: RoutesNames.UNREGISTERED, component: Login }
+  { path: RoutesNames.UNREGISTERED, component: Login, exact: true }
 ]

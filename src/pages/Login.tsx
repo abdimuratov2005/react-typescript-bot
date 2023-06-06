@@ -3,7 +3,7 @@ import { FC } from 'react'
 const Login:FC = () => {
   return(
     <>
-      Login
+      <h1>Login</h1>
     </>
   )
 }
